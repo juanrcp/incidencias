@@ -1,0 +1,50 @@
+<!--Aqui mostramos la lista de incidencias del servidor, ademas de incluir un boton para añadir nuevas-->
+<div class='container'>
+    <div class='row'>
+        <div class='col-sm-12'>
+            
+            <form class='form-inline'>
+                <fieldset class='form-group col-sm-11'></fieldset>
+                
+                <fieldset class='form-group col-sm-1'>
+                    <a class= 'btn btn-primary' routerLink="introduccionIncidencias/crearIncidencia/new">+</a>
+                </fieldset>
+            </form>
+            <br>
+            <table class='table table-striped'>
+                <thead>                
+                    <tr>
+                        <th class='col-sm-6'>NOMBRE COMPLETO</th>
+                        <th class='col-sm-6'>FECHA</th>
+                        <th class='col-sm-6'>LUGAR</th>
+                        <th class='col-sm-6'>DESCRIPCION</th>
+                        <th class='col-sm-6'>SOLUCION</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="incidencias">
+                    <tr *ngFor='let incidencia of incidencias'>
+                        <td class='col-sm-6'>
+                            <i>{{incidencia.nombreCompleto}}</i>
+                        </td>
+                        
+                        <td class='col-sm-6'>
+                            <i>{{incidencia.fecha}}</i>
+                        </td>
+
+                        <td class='col-sm-6'>
+                            <i>{{incidencia.lugar}}</i>
+                        </td>
+
+                        <td class='col-sm-6'>
+                            <i>{{incidencia.descripcion}}</i>
+                        </td>
+
+                        <td class='col-sm-6'>
+                            <i>{{incidencia.solucion}}</i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

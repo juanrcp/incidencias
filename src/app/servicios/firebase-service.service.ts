@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class FirebaseServiceService {
 
-  coleccion = '';
+  coleccion = 'incidencias';
 
   constructor(
     private firebase: AngularFirestore
