@@ -22,7 +22,8 @@ export class CrearIncidenciaComponent {
     fecha: [''],
     lugar: [''],
     descripcion: [''],
-    reaparacion: ['']
+    reparacion: [''],
+    estado: ['']
 
   });
 

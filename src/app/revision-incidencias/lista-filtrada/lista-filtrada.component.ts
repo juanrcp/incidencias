@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
-import { FirebaseServiceService } from '../../servicios/firebase-service.service';
 import { ActivatedRoute } from '@angular/router';
-import { Incidencia } from '../../interfaces/incidencia';
+import { FirebaseServiceService } from 'src/app/servicios/firebase-service.service';
 
+//COMPONENTE CON FILTRADO POR ESTADO
 @Component({
-  selector: 'app-lista-incidencias',
-  templateUrl: './lista-incidencias.component.html',
-  styleUrls: ['./lista-incidencias.component.css']
+  selector: 'app-lista-filtrada',
+  templateUrl: './lista-filtrada.component.html',
+  styleUrls: ['./lista-filtrada.component.css']
 })
-
-//Vista de las incidencias
-export class ListaIncidenciasComponent {
+export class ListaFiltradaComponent {
 
   incidencias: any[] = [];
 

@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>NUEVA INCIDENCIA</h1>
+    <h1>MODIFICAR INCIDENCIA</h1>
     <div class="col-sm-12">
         <!--Formulario con requerimientos, si no se rellenan todos los campos el boton no se activara-->
         <form [formGroup]="perfileForm" (ngSubmit)="guardar()">
@@ -49,10 +49,22 @@
 
             </fieldset>
 
+            <fieldset class="form-group">
+
+                <div class="col-sm-3">
+                    <label class="control-label" for="nif">ESTADO: </label>
+                    <select type="select" class="form-control" formControlName="estado" name="estado" required="">
+                        <option *ngFor="let estado of estadosIncidencia" [value]="estado">{{estado}}</option>
+                    </select>
+                </div>
+
+            </fieldset>
+
             <fieldset class="form-group" style="margin-top: 5%;">
             
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary" [disabled]="!perfileForm.valid">GUARDAR INCIDENCIA</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!perfileForm.valid">MODIFICAR INCIDENCIA</button>
+                    <button type="button" class="btn btn-warning" *ngIf="!nuevaIncidencia" (click)="borrar(id)" style="margin-left: 5%;">BORRAR</button>
                     <button type="button" class="btn btn-primary" (click)="volver()" style="margin-left: 5%;">VOLVER</button>
                 </div>
             
@@ -60,3 +72,4 @@
         </form>
     </div>
 </div>
+

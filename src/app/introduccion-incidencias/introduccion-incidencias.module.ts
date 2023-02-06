@@ -5,6 +5,7 @@ import { IntroduccionIncidenciasRoutingModule } from './introduccion-incidencias
 import { ListaIncidenciasComponent } from './lista-incidencias/lista-incidencias.component';
 import { CrearIncidenciaComponent } from './crear-incidencia/crear-incidencia.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterLinkWithHref } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,12 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     IntroduccionIncidenciasRoutingModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLinkWithHref
+  ],
+  exports: [
+    //Exportamos la lista de incidencias para usarla en otro modulo
+    ListaIncidenciasComponent
   ]
 })
 export class IntroduccionIncidenciasModule { }
