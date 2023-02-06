@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "misegundoproyecto-d7801": {
+      "hosting": {
+        "incidencias": [
+          "misegundoproyecto-d7801"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "misegundoproyecto-d7801"
+  }
+}

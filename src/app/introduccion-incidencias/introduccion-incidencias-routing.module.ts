@@ -5,7 +5,7 @@ import { CrearIncidenciaComponent } from './crear-incidencia/crear-incidencia.co
 
 const routes: Routes = [
   {path:'', component: ListaIncidenciasComponent}, 
-  {path:'crear-incidencia', component: CrearIncidenciaComponent},
+  {path:'crear-incidencia/new', component: CrearIncidenciaComponent},
   {path:'**', redirectTo:'/', pathMatch:'full'}
 ];
 

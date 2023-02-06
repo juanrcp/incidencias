@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseServiceService } from '../../servicios/firebase-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { Incidencia } from '../../interfaces/incidencia';
 
 @Component({
   selector: 'app-lista-incidencias',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ListaIncidenciasComponent {
 
-  incidencias: any;
+  incidencias: any[] = [];
 
   constructor(
   
@@ -19,13 +20,14 @@ export class ListaIncidenciasComponent {
   
   ngOnInit(){
 
-    //TODO: Da error aqui!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //Cargamos todos las incidencias y las mostramos una a una en la vista 
     this.incidenciaServ.getAll().subscribe(
       (resp: any) => {
         this.incidencias = [];
         resp.forEach((incidenciaData: any) =>{
+
           console.log(incidenciaData);
+          
           this.incidencias.push({
             id: incidenciaData.payload.doc.id,
             ...incidenciaData.payload.doc.data()

@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { IntroduccionIncidenciasModule } from './introduccion-incidencias/introduccion-incidencias.module';
 import { GestionIncidenciasModule } from './gestion-incidencias/gestion-incidencias.module';
 import { RevisionIncidenciasModule } from './revision-incidencias/revision-incidencias.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
@@ -21,12 +21,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     //Importamos modulo para firebase
     AngularFireModule.initializeApp(environment.firebase),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
+    AngularFirestoreModule,
     IntroduccionIncidenciasModule,
     GestionIncidenciasModule,
     RevisionIncidenciasModule,
-    NgbModule
+    NgbModule,
+    //Importamos modulo para autentificaciones
+    AngularFireAuthModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

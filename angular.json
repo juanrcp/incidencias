@@ -48,8 +48,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/some-app/src/environments/environment.ts",
-                  "with": "apps/some-app/src/environments/environment.prod.ts"
+                  "replace": "app/some-app/src/environments/environment.ts",
+                  "with": "app/some-app/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -101,6 +101,16 @@
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "incidencias:build:production",
+            "firebaseProject": "misegundoproyecto-d7801",
+            "firebaseHostingSite": "misegundoproyecto-d7801"
           }
         }
       }

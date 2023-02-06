@@ -1,1 +1,54 @@
-<p>crear-incidencia works!</p>
+<div class="container">
+    <div class="col-sm-12">
+        <!--Formulario con requerimientos, si no se rellenan todos los campos el boton no se activara-->
+        <form [formGroup]="perfileForm" (ngSubmit)="guardar()">
+
+            <fieldset class="form-group">
+
+                <div class="col-sm-12">
+                    <label class="control-label" for="nombreCompleto">AUTOR DEL REGISTRO: </label>
+                    <input type="text" class="form-control" formControlName="autor" name="autor" required="">
+                </div>
+
+            </fieldset>
+
+            <fieldset class="form-group">
+
+                <div class="col-sm-3">
+                    <label class="control-label" for="nif">FECHA: </label>
+                    <input type="text" class="form-control" formControlName="fecha" name="fecha" required=""/>
+                </div>
+
+            </fieldset>
+
+            <fieldset class="form-group">
+
+                <div class="col-sm-3">
+                    <label class="control-label" for="nif">LUGAR: </label>
+                    <input type="text" class="form-control" formControlName="lugar" name="lugar" required=""/>
+                </div>
+
+            </fieldset>
+
+            <fieldset class="form-group">
+
+                <div class="col-sm-3">
+                    <label class="control-label" for="nif">DESCRIPCION: </label>
+                    <input type="text" class="form-control" formControlName="descripcion" name="descripcion" required=""/>
+                </div>
+
+            </fieldset>
+
+            <fieldset class="form-group">
+
+                <div class="col-sm-3">
+                    <label class="control-label" for="nif">REPARACION: </label>
+                    <input type="text" class="form-control" formControlName="reparacion" name="reparacion" required=""/>
+                </div>
+
+            </fieldset>
+
+           
+        </form>
+    </div>
+</div>

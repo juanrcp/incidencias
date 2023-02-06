@@ -4,7 +4,8 @@ import { Timestamp } from "firebase/firestore";
 export interface Incidencia {
 
     incidencia : {
-        autor: string;
+        id: string,
+        autor: string,
         fecha: Timestamp,
         lugar: string,
         descripcion: string,
