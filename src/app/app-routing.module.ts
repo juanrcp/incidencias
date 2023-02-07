@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 //Aqui declaramos las rutas hacia los diferentes modulos.
 const routes: Routes = [
+
+  { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+
   {path:'introduccionIncidencias', loadChildren: () => import('./introduccion-incidencias/introduccion-incidencias.module').
     then(i => i.IntroduccionIncidenciasModule)
   },
@@ -12,7 +15,6 @@ const routes: Routes = [
   {path:'revisionIncidencias', loadChildren: () => import('./revision-incidencias/revision-incidencias.module').
     then(r => r.RevisionIncidenciasModule)
   },
-  { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   {path:'**', redirectTo:'/', pathMatch: 'full' }
 ];
 

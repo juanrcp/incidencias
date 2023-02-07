@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListaIncidenciasComponent } from '../introduccion-incidencias/lista-incidencias/lista-incidencias.component';
 import { EditComponenteComponent } from './edit-componente/edit-componente.component';
+import { CrearIncidenciaComponent } from '../introduccion-incidencias/crear-incidencia/crear-incidencia.component';
+import { ListaIncidenciasComponent } from './lista-incidencias/lista-incidencias.component';
 
 const routes: Routes = [
   {path:'', component: ListaIncidenciasComponent}, 
-  {path:'crear-incidencia/new', component: EditComponenteComponent},
+  {path:'crear-incidencia/new', component: CrearIncidenciaComponent},
   {path:'edit-incidencia/:id', component: EditComponenteComponent},
   {path:'**', redirectTo:'/', pathMatch:'full'}
 ];

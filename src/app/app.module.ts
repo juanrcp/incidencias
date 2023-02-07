@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MenuComponent } from './menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { MenuComponent } from './menu/menu.component';
     NgbModule,
     //Importamos modulo para autentificaciones
     AngularFireAuthModule,
+    BrowserAnimationsModule,
+    HomeModule,
 
   ],
   providers: [],

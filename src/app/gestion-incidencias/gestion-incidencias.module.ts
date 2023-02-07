@@ -5,11 +5,13 @@ import { GestionIncidenciasRoutingModule } from './gestion-incidencias-routing.m
 import { IntroduccionIncidenciasModule } from '../introduccion-incidencias/introduccion-incidencias.module';
 import { EditComponenteComponent } from './edit-componente/edit-componente.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListaIncidenciasComponent } from './lista-incidencias/lista-incidencias.component';
 
 
 @NgModule({
   declarations: [
-    EditComponenteComponent
+    EditComponenteComponent,
+    ListaIncidenciasComponent
   ],
   imports: [
     CommonModule,

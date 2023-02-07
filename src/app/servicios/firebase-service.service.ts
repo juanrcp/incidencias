@@ -39,9 +39,14 @@ export class FirebaseServiceService {
     this.firebase.collection(this.coleccion).doc(id).delete();
   }
 
-  //Seleccionar revisados.
+  //Metodo del servicio para Seleccionar solo revisados.
   selectRevisados(): any {
     return this.firebase.collection("incidencias", ref => ref.where("revisado", "==", true)).snapshotChanges();
+  }
+
+  //Metodo del servicio para extraer a los no revisados. 
+  selectNoRevisados(): any {
+    return this.firebase.collection("incidencias", ref => ref.where("revisado", "==", false)).snapshotChanges();
   }
 
 }

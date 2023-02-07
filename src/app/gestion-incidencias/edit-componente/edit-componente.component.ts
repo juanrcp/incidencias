@@ -10,6 +10,8 @@ import { estadosIncidencia } from '../../interfaces/incidencia';
   templateUrl: './edit-componente.component.html',
   styleUrls: ['./edit-componente.component.css']
 })
+
+//Componente para editar incidencias
 export class EditComponenteComponent {
 
   //Variables necesarias

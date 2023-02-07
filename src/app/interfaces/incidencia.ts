@@ -16,14 +16,13 @@ export var estadosIncidencia: string [] = [
 //Interfaz de incidencias con los campos para almacenar la informacion
 export interface Incidencia {
 
-    incidencia : {
-        id: string,
-        autor: string,
-        fecha: Timestamp,
-        lugar: string,
-        descripcion: string,
-        reparacion: string,
-        estado: string,
-        revisado: boolean
-    }
+    id: string,
+    autor: string,
+    fecha: Timestamp,
+    lugar: string,
+    descripcion: string,
+    reparacion: string,
+    estado: string,
+    revisado: boolean
+    
 }

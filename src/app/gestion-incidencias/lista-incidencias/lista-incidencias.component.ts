@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { FirebaseServiceService } from '../../servicios/firebase-service.service';
 import { ActivatedRoute } from '@angular/router';
-import { Incidencia } from '../../interfaces/incidencia';
+import { FirebaseServiceService } from 'src/app/servicios/firebase-service.service';
 
 @Component({
   selector: 'app-lista-incidencias',

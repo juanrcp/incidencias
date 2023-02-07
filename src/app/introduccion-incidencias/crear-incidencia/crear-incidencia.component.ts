@@ -10,6 +10,8 @@ import { Location } from '@angular/common';
   templateUrl: './crear-incidencia.component.html',
   styleUrls: ['./crear-incidencia.component.css']
 })
+
+//Componente para crear incidencias
 export class CrearIncidenciaComponent {
 
   //Variables necesarias

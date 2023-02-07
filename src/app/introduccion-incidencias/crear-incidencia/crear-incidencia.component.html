@@ -1,6 +1,6 @@
 <div class="container">
     <h1>NUEVA INCIDENCIA</h1>
-    <div class="col-sm-12">
+    <div id="formulario">
         <!--Formulario con requerimientos, si no se rellenan todos los campos el boton no se activara-->
         <form [formGroup]="perfileForm" (ngSubmit)="guardar()">
 
@@ -15,7 +15,7 @@
 
             <fieldset class="form-group">
 
-                <div class="col-sm-3">
+                <div class="col-sm-5" style="margin-left: 30%;">
                     <label class="control-label" for="nif">FECHA: </label>
                     <input type="date" class="form-control" formControlName="fecha" name="fecha" required=""/>
                 </div>
@@ -24,7 +24,7 @@
 
             <fieldset class="form-group">
 
-                <div class="col-sm-3">
+                <div class="col-sm-12">
                     <label class="control-label" for="nif">LUGAR: </label>
                     <input type="text" class="form-control" formControlName="lugar" name="lugar" required=""/>
                 </div>
@@ -33,7 +33,7 @@
 
             <fieldset class="form-group">
 
-                <div class="col-sm-3">
+                <div class="col-sm-12">
                     <label class="control-label" for="nif">DESCRIPCION: </label>
                     <input type="text" class="form-control" formControlName="descripcion" name="descripcion" required=""/>
                 </div>
@@ -42,7 +42,7 @@
 
             <fieldset class="form-group">
 
-                <div class="col-sm-3">
+                <div class="col-sm-12">
                     <label class="control-label" for="nif">REPARACION: </label>
                     <input type="text" class="form-control" formControlName="reparacion" name="reparacion" required=""/>
                 </div>
@@ -54,6 +54,7 @@
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-primary" [disabled]="!perfileForm.valid">GUARDAR INCIDENCIA</button>
                     <button type="button" class="btn btn-primary" (click)="volver()" style="margin-left: 5%;">VOLVER</button>
+                    <button class= 'btn btn-primary' style="margin-left: 5%;" [disabled]="!perfileForm.valid" routerLink="crear-incidencia/new">CREAR OTRAS INCIDENCIA</button>
                 </div>
             
             </fieldset>

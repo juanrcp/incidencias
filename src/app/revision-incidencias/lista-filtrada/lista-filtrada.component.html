@@ -4,8 +4,9 @@
     <div class='row'>
         <div class='col-sm-12'>
             <fieldset class='form-group col-sm-11'>
+                <h3>FILTRAR POR:</h3>
                 <button class= 'btn btn-primary' (click)="mostarRevisados()">REVISADO</button>
-                <button class= 'btn btn-primary' >NO REVISADOS</button>
+                <button class= 'btn btn-primary' (click)="mostarNoRevisados()">NO REVISADOS</button>
                 <button class= 'btn btn-primary' (click)="mostrarTodos()">TODOS</button>
             </fieldset>
             <form class='form-inline'>
@@ -25,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody *ngIf="incidencias">
-                    <tr *ngFor='let incidencia of incidencias' routerLink="edit-incidencia/{{incidencia.id}}">
+                    <tr *ngFor='let incidencia of incidencias'>
                         <td class='col-sm-6'>
                             <i>{{incidencia.autor}}</i>
                         </td>                       
@@ -50,7 +51,15 @@
                         </td>
 
                         <td class='col-sm-6'>
-                            <i>{{incidencia.revisado}}</i>
+                            <i *ngIf="incidencia.revisado == true">SI</i>
+                            <i *ngIf="incidencia.revisado == false">NO</i>
+                        </td>
+
+                        <td *ngIf="incidencia.revisado == false">
+                            <input class="form-check-input" type="checkbox" value="{{incidencia.revisado}}" id="revisado" [class.selected]="incidencia === incidenciaSelect"
+                            (change)="cambiarEstado(incidencia.id)">
+                            
+                            <label for="revisado">REVISADO</label>
                         </td>
                     </tr>
                 </tbody>

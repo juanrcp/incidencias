@@ -6,7 +6,7 @@
 
             <fieldset class="form-group">
 
-                <div class="col-sm-12">
+                <div class="col-sm-3">
                     <label class="control-label" for="nombreCompleto">AUTOR DEL REGISTRO: </label>
                     <p>{{incidencia.autor}}</p>
                 </div>
@@ -64,7 +64,7 @@
             
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-primary" [disabled]="!perfileForm.valid">MODIFICAR INCIDENCIA</button>
-                    <button type="button" class="btn btn-warning" *ngIf="!nuevaIncidencia" (click)="borrar(id)" style="margin-left: 5%;">BORRAR</button>
+                    <button type="button" class="btn btn-danger" *ngIf="!nuevaIncidencia" (click)="borrar(id)" style="margin-left: 5%;">BORRAR</button>
                     <button type="button" class="btn btn-primary" (click)="volver()" style="margin-left: 5%;">VOLVER</button>
                 </div>
             
