@@ -11,10 +11,12 @@ import { RevisionIncidenciasModule } from './revision-incidencias/revision-incid
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

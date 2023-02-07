@@ -23,7 +23,8 @@ export class CrearIncidenciaComponent {
     lugar: [''],
     descripcion: [''],
     reparacion: [''],
-    estado: ['']
+    estado: [''],
+    revisado: false
 
   });
 

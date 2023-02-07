@@ -38,4 +38,10 @@ export class FirebaseServiceService {
   delete(id: string): void{
     this.firebase.collection(this.coleccion).doc(id).delete();
   }
+
+  //Seleccionar revisados.
+  selectRevisados(): any {
+    return this.firebase.collection("incidencias", ref => ref.where("revisado", "==", true)).snapshotChanges();
+  }
+
 }

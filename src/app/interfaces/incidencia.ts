@@ -23,6 +23,7 @@ export interface Incidencia {
         lugar: string,
         descripcion: string,
         reparacion: string,
-        estado: string
+        estado: string,
+        revisado: boolean
     }
 }

@@ -26,7 +26,8 @@ export class EditComponenteComponent {
     lugar: [''],
     descripcion: [''],
     reparacion: [''],
-    estado: ['']
+    estado: [''],
+    revisado: false
   });
 
   constructor(
@@ -52,6 +53,7 @@ export class EditComponenteComponent {
       this.incidenciaSevicio.getIncidencia(this.id).subscribe((resp: any) => {
         console.log(resp.payload.data());
         this.perfileForm.setValue({...resp.payload.data()});
+        this.incidencia = {...resp.payload.data()};
       });
 
     }else{

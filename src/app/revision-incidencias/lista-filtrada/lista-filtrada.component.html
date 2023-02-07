@@ -1,14 +1,15 @@
-<!--Aqui mostramos la lista de incidencias del servidor, ademas de incluir un boton para añadir nuevas-->
+<!--Aqui mostramos la lista de incidencias del servidor, ademas de incluir botones para filtrarlas-->
 <div class='container'>
     <h1>LISTA DE INCIDENCIAS</h1>
     <div class='row'>
         <div class='col-sm-12'>
+            <fieldset class='form-group col-sm-11'>
+                <button class= 'btn btn-primary' (click)="mostarRevisados()">REVISADO</button>
+                <button class= 'btn btn-primary' >NO REVISADOS</button>
+                <button class= 'btn btn-primary' (click)="mostrarTodos()">TODOS</button>
+            </fieldset>
             <form class='form-inline'>
-                <fieldset class='form-group col-sm-11'></fieldset>
-                
-                <fieldset class='form-group col-sm-1'>
-                    <a class= 'btn btn-primary' routerLink="crear-incidencia/new">NUEVA INCIDENCIA</a>
-                </fieldset>
+
             </form>
             <br>
             <table class='table table-striped'>
@@ -20,6 +21,7 @@
                         <th class='col-sm-6'>DESCRIPCIÓN</th>
                         <th class='col-sm-6'>SUGERENCIA REPARACIÓN</th>
                         <th class='col-sm-6'>ESTADO</th>
+                        <th class='col-sm-6'>REVISADO</th>
                     </tr>
                 </thead>
                 <tbody *ngIf="incidencias">
@@ -45,6 +47,10 @@
 
                         <td class='col-sm-6'>
                             <i>{{incidencia.estado}}</i>
+                        </td>
+
+                        <td class='col-sm-6'>
+                            <i>{{incidencia.revisado}}</i>
                         </td>
                     </tr>
                 </tbody>

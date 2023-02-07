@@ -12,7 +12,8 @@ const routes: Routes = [
   {path:'revisionIncidencias', loadChildren: () => import('./revision-incidencias/revision-incidencias.module').
     then(r => r.RevisionIncidenciasModule)
   },
-  {path:'**', redirectTo:'introduccionIncidencias', pathMatch: 'full' }
+  { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+  {path:'**', redirectTo:'/', pathMatch: 'full' }
 ];
 
 @NgModule({

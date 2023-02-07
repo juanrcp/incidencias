@@ -19,8 +19,29 @@ export class ListaFiltradaComponent {
   ){}
   
   ngOnInit(){
+    
+  }
 
-    //Cargamos todos las incidencias y las mostramos una a una en la vista 
+  //Metodo para mostrar incidencias revisadas
+  mostarRevisados(){
+    this.incidenciaServ.selectRevisados().subscribe(
+      (resp: any) => {
+        this.incidencias = [];
+        resp.forEach((incidenciaData: any) =>{
+
+          console.log(incidenciaData);
+          
+          this.incidencias.push({
+            id: incidenciaData.payload.doc.id,
+            ...incidenciaData.payload.doc.data()
+          });
+        });
+      }
+    )
+  }
+
+  //Metodo Para mostrar Todas las Incidencias 
+  mostrarTodos(){
     this.incidenciaServ.getAll().subscribe(
       (resp: any) => {
         this.incidencias = [];
