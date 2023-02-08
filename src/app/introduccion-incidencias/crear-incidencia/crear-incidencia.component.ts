@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { FirebaseServiceService } from '../../servicios/firebase-service.service';
 import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-incidencia',
@@ -48,12 +49,22 @@ export class CrearIncidenciaComponent {
     console.log(this.perfileForm.value);
       this.incidenciaServicio.addIncidencia(this.perfileForm.value).then(
         () => {
-          alert("Nueva Incidencia Creada.");
+          Swal.fire({
+            title: 'Exito!',
+            text: 'Nueva Incidencia Creada.',
+            imageUrl: 'https://unsplash.it/400/200',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          });
           console.log("Nueva Incidencia Creada.");
+          this.perfileForm.reset(); 
+          
         }, (error: any) => {
           console.log(error);
-        }
-      );
+        });
+
+        
   }
 
   //Metodo para volver al sitio anterior.

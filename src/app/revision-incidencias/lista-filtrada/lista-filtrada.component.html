@@ -56,10 +56,10 @@
                         </td>
 
                         <td *ngIf="incidencia.revisado == false">
-                            <input class="form-check-input" type="checkbox" value="{{incidencia.revisado}}" id="revisado" [class.selected]="incidencia === incidenciaSelect"
+                            <input class="form-check-input" type="checkbox" value="" id="CheckRevisado" 
                             (change)="cambiarEstado(incidencia.id)">
                             
-                            <label for="revisado">REVISADO</label>
+                            <label for="CheckRevisado">REVISADO</label>
                         </td>
                     </tr>
                 </tbody>

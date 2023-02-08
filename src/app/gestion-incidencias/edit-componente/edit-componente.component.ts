@@ -4,6 +4,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FirebaseServiceService } from '../../servicios/firebase-service.service';
 import { Location } from '@angular/common';
 import { estadosIncidencia } from '../../interfaces/incidencia';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-componente',
@@ -71,7 +72,15 @@ export class EditComponenteComponent {
       console.log(this.perfileForm.value);
       this.incidenciaSevicio.addIncidencia(this.perfileForm.value).then(
         () => {
-          alert("Nueva Incidencia Creada.");
+          Swal.fire({
+            title: 'Exito!',
+            text: 'Nueva Incidencia Creada.',
+            imageUrl: 'https://unsplash.it/400/200',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          });
+
           console.log("Nueva Incidencia Creada.");
         }, (error: any) => {
           console.log(error);
@@ -86,7 +95,15 @@ export class EditComponenteComponent {
 
       this.incidenciaSevicio.updateIncidencia(id, this.perfileForm.value).then(
         () => {
-          alert("Incidencia Modificada");
+          Swal.fire({
+            title: 'Exito!',
+            text: 'Incidencia Modificada.',
+            imageUrl: 'https://unsplash.it/400/200',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          });
+
           console.log("Incidencia Modificada.");
         }, (error: any) => {
           console.log(error);
@@ -99,7 +116,15 @@ export class EditComponenteComponent {
   borrar(id: string): void{
 
     this.incidenciaSevicio.delete(id);
-    alert("Incidencia Borrada");
+    Swal.fire({
+      title: 'Exito!',
+      text: 'Incidencia Borrada.',
+      imageUrl: 'https://unsplash.it/400/200',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    });
+
     console.log("Incidencia Borrada");
     this.volver();
   }

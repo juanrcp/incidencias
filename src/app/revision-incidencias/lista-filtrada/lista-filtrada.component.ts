@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FirebaseServiceService } from 'src/app/servicios/firebase-service.service';
 import { Incidencia } from '../../interfaces/incidencia';
+import Swal from 'sweetalert2';
 
 //COMPONENTE CON FILTRADO POR ESTADO
 @Component({
@@ -84,15 +85,26 @@ export class ListaFiltradaComponent {
     this.incidenciaServ.getIncidencia(id).subscribe(
       (resp: any) => {
         this.incidenciaSelect = {...resp.payload.data()}
-    });
+        
+        if(!this.incidenciaSelect.revisado){
+          this.incidenciaSelect.revisado = true;
+          console.log(this.incidenciaSelect);
       
-      this.incidenciaSelect.revisado = true;
-      console.log(this.incidenciaSelect);
-    
-      this.incidenciaServ.updateIncidencia(id, this.incidenciaSelect);
-      alert("Incidencia Revisada.");
-      console.log("Incidencia Revisada.");
-    
+          this.incidenciaServ.updateIncidencia(id, this.incidenciaSelect);
+
+          Swal.fire({
+            title: 'Exito!',
+            text: 'Incidencia Revisda.',
+            imageUrl: 'https://unsplash.it/400/200',
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          });
+
+          console.log("Incidencia Revisada.");
+        }        
+      });
+      
   }
 
 }

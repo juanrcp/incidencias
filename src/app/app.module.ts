@@ -33,7 +33,7 @@ import { HomeModule } from './home/home.module';
     //Importamos modulo para autentificaciones
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    HomeModule,
+    HomeModule
 
   ],
   providers: [],

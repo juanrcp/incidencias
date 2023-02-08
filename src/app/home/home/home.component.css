@@ -1,12 +1,11 @@
 h1 {
     text-align: center;
     margin:auto;
-    margin-top: 2%;
-
+    margin-top: 20%;
+    font-size: 400%;
 }
 
-body{
+.container {
     text-align: center;
-    background-color: antiquewhite;
     color: blue;
 }
