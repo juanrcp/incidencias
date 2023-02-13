@@ -72,6 +72,7 @@ export class EditComponenteComponent {
       console.log(this.perfileForm.value);
       this.incidenciaSevicio.addIncidencia(this.perfileForm.value).then(
         () => {
+          //Confirmacion de guardado
           Swal.fire({
             title: 'Exito!',
             text: 'Nueva Incidencia Creada.',

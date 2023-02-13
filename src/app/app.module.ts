@@ -14,6 +14,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './home/home.module';
+import { GestionAccesoModule } from './gestion-acceso/gestion-acceso.module';
+//Importaciones necesarias para la autentificacion
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,9 @@ import { HomeModule } from './home/home.module';
     AppRoutingModule,
     //Importamos modulo para firebase
     AngularFireModule.initializeApp(environment.firebase),
+    //Añadimos autentificacion
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
     AngularFirestoreModule,
     IntroduccionIncidenciasModule,
     GestionIncidenciasModule,
@@ -33,7 +40,8 @@ import { HomeModule } from './home/home.module';
     //Importamos modulo para autentificaciones
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    HomeModule
+    HomeModule,
+    GestionAccesoModule
 
   ],
   providers: [],
