@@ -10,12 +10,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
+import { PermisosComponent } from './permisos/permisos.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    CrearUsuarioComponent
+    CrearUsuarioComponent,
+    PermisosComponent
   ],
   imports: [
     CommonModule,

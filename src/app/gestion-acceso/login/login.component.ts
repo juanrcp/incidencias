@@ -20,7 +20,7 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
-    private autenServicio : AutentificacionService,
+    public autenServicio : AutentificacionService,
     private readonly router: Router
     ) {}
 
@@ -41,7 +41,7 @@ export class LoginComponent {
     return this.form.get('clave');
   }
 
-  //Loguing usuario/contraseña
+  //Loging usuario/contraseña
   login(loginData: Usuario) {
     this.autenServicio.login(loginData)
       .then(() => this.router.navigate(['/home']))
@@ -49,7 +49,8 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    this.formData.emit(this.form.value);
+    //this.formData.emit(this.form.value);
+    this.login(this.form.value);
   }
 
 }

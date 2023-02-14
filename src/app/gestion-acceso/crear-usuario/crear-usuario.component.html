@@ -3,16 +3,37 @@
             <div class="login-container">
                 <div class="form-container">
                     <h1>BIENVENIDO AL GESTOR DE INCIDENCIAS</h1>
-                    <h5>REGISTRA TU NOMBRE:</h5>
-                    <app-login (formData)="register($event)"></app-login>
-                </div>
-                <div class="text-container">
-                    <h1>Hey Buddy</h1>
-                    <p>
-                        Already have an awesome account? Go ahead and click the button below to
-                        sign in!
-                    </p>
-                    <button mat-button routerLink="/">Sign in</button>
+                    <h3>REGISTRA TUS DATOS:</h3>
+                    <!-- 
+                        <app-login (formData)="register($event)"></app-login>
+                    -->
+                    <h1>LOGIN</h1>
+                    <br>
+                    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <mat-form-field class="form-control">
+                            <mat-label>CORREO ELECTRONICO:</mat-label>
+                            <input matInput formControlName="correo" type="text" required />
+                            <mat-error *ngIf="correo?.hasError('required')">
+                                Email requerido.
+                            </mat-error>
+                            <mat-error *ngIf="correo?.hasError('correo')">
+                                Email no valido.
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="form-control">
+                            <mat-label>CLAVE</mat-label>
+                            <input matInput formControlName="clave" type="clave" required />
+                            <mat-error *ngIf="clave?.hasError('required')">
+                                Clave requerida.
+                            </mat-error>
+                        </mat-form-field>
+                        <div class="form-footer">
+                            <br>
+                            <button [disabled]="form.invalid" mat-raised-button type="submit">
+                                REGISTRAR
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

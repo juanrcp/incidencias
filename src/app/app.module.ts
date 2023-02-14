@@ -10,7 +10,7 @@ import { GestionIncidenciasModule } from './gestion-incidencias/gestion-incidenc
 import { RevisionIncidenciasModule } from './revision-incidencias/revision-incidencias.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireAuthModule, PERSISTENCE } from '@angular/fire/compat/auth';
 import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './home/home.module';
@@ -18,6 +18,8 @@ import { GestionAccesoModule } from './gestion-acceso/gestion-acceso.module';
 //Importaciones necesarias para la autentificacion
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { PermisosComponent } from './gestion-acceso/permisos/permisos.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     GestionAccesoModule
 
   ],
-  providers: [],
+  providers: [
+    PermisosComponent,
+    { provide: PERSISTENCE, useValue: 'session'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
