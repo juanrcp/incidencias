@@ -3,11 +3,10 @@
             <div class="login-container">
                 <div class="form-container">
                     <h1>BIENVENIDO AL GESTOR DE INCIDENCIAS</h1>
-                    <h3>REGISTRA TUS DATOS:</h3>
+                    <h1>REGISTRA TUS DATOS:</h1>
                     <!-- 
                         <app-login (formData)="register($event)"></app-login>
                     -->
-                    <h1>LOGIN</h1>
                     <br>
                     <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
                         <mat-form-field class="form-control">
@@ -25,6 +24,13 @@
                             <input matInput formControlName="clave" type="clave" required />
                             <mat-error *ngIf="clave?.hasError('required')">
                                 Clave requerida.
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="form-control">
+                            <mat-label>CONFIRMAR CLAVE</mat-label>
+                            <input matInput formControlName="claveC" type="claveC" (blur)="compruebaClaves()" required />
+                            <mat-error *ngIf="clave != claveC">
+                                Las claves no coinciden.
                             </mat-error>
                         </mat-form-field>
                         <div class="form-footer">

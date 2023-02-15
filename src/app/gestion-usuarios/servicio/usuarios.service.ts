@@ -27,13 +27,13 @@ export class UsuariosService {
   }
 
   //Metodo del servicio para modificar un cliente en concreto
-  updateUsuario(id: string, clientes: any): any{
-    return this.firebase.collection(this.coleccion).doc(id).update(clientes);
+  updateUsuario(id: string, usuario: any): any{
+    return this.firebase.collection(this.coleccion).doc(id).update(usuario);
   }
 
   ////Metodo del servicio para añadir un nuevo cliente
-  addUsuario(clientes: any): any{
-    return this.firebase.collection(this.coleccion).add(clientes);
+  addUsuario(usuario: any): any{
+    return this.firebase.collection(this.coleccion).add(usuario);
   }
 
   //Metodo del servicio para borrar un cliente en concreto.

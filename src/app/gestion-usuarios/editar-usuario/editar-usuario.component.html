@@ -1,4 +1,5 @@
 <div class="container col-sm-5">
+    <h1>EDITAR USUARIO</h1>
     <br>
     <div class="col-sm-12">
         <!--Formulario con requerimientos, si no se rellenan todos los campos el boton no se activara-->
@@ -7,7 +8,7 @@
             <fieldset class="form-group">
 
                 <div class="col-sm-12">
-                    <label class="control-label" for="nombreCompleto">CORREO ELECTRONICO: </label>
+                    <label class="control-label" for="correo">CORREO ELECTRONICO: </label>
                     <input type="text" class="form-control" formControlName="correo" name="correo" required="">
                 </div>
 
@@ -16,7 +17,7 @@
             <fieldset class="form-group">
 
                 <div class="col-sm-12">
-                    <label class="control-label" for="nif">CONTRASEÑA: </label>
+                    <label class="control-label" for="clave">CONTRASEÑA: </label>
                     <input type="text" class="form-control" formControlName="clave" name="clave" required=""/>
                 </div>
 
@@ -25,8 +26,10 @@
             <fieldset class="form-group">
 
                 <div class="col-sm-12">
-                    <label class="control-label" for="nif">ROL: </label>
-                    <input type="text" class="form-control" formControlName="rol" name="rol" required=""/>
+                    <label class="control-label" for="rol">ROL: </label>
+                    <select type="select" class="form-control" formControlName="rol" name="rol" required="">
+                        <option *ngFor="let rol of tiposRol" [value]="rol">{{rol}}</option>
+                    </select>
                 </div>
 
             </fieldset>            

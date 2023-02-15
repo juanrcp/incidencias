@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { UsuariosService } from '../servicio/usuarios.service';
 import { FormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
+import { tiposRoles } from 'src/app/interfaces/usuario';
+import { Usuario } from '../../interfaces/usuario';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -12,15 +14,16 @@ import { Location } from '@angular/common';
 export class EditarUsuarioComponent {
 
   //Variables necesarias
-  usuario?: any;
+  usuario?: Usuario;
   nuevoUsuario: boolean = false;
+  tiposRol: string[] = [];
  
   //Perfil del formulario
   perfileForm = this.fb.group({
     
     correo: [''],
     clave: [''],
-    rol: ['Pendiente de Asignar']
+    rol: ['']
   });
 
   constructor(
@@ -32,6 +35,10 @@ export class EditarUsuarioComponent {
   ) { }
 
   ngOnInit() {
+
+    this.tiposRol = tiposRoles;
+
+    console.log(this.tiposRol);
 
     //Si la url nos devuelve un identificador rellenamos el fromulario con sus valores y podremos editarlo
     //y si no creamos un usuario nuevo
@@ -57,6 +64,7 @@ export class EditarUsuarioComponent {
     //Si el usuario es nuevo lo creo
     if(this.nuevoUsuario){
       console.log(this.perfileForm.value);
+      this.perfileForm.value.rol = 'PENDIENTE DE ASIGNAR';
       this.usuarioService.addUsuario(this.perfileForm.value).then(
         () => {
           alert("Nuevo Usuario Creado.");

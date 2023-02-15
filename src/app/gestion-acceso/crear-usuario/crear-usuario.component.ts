@@ -13,6 +13,7 @@ import { UsuariosService } from '../../gestion-usuarios/servicio/usuarios.servic
 export class CrearUsuarioComponent {
 
   form: FormGroup;
+  clavesCorrectas: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -25,7 +26,8 @@ export class CrearUsuarioComponent {
     this.form = this.fb.group({
       correo: ['', [Validators.required]],
       clave: ['', Validators.required], 
-      rol: ['Pendiente de Asignar']
+      claveC: ['', Validators.required], 
+      rol: ['PENDIENTE DE ASIGNAR']
     });
   }
 
@@ -37,6 +39,10 @@ export class CrearUsuarioComponent {
     return this.form.get('clave');
   }
 
+  get claveC() {
+    return this.form.get('claveC');
+  }
+
   register(data: Usuario) {
     this.autenServicio.register(data)
       .then(() => this.router.navigate(['/login']))
@@ -45,6 +51,24 @@ export class CrearUsuarioComponent {
       //Esto nos crea el metodo en la base de datos con un rol.
       this.registraUsuario.addUsuario(data);
 
+  }
+
+  compruebaClaves() {
+    console.log('Comprobando que las contaseñas sean identicas');
+    /*  La idea es leer ambas passwords y ver si son iguales, si no resetearlas y volver a pedirlas */
+    const clave = this.form.get('clave')?.value;
+    const claveC = this.form.get('claveC')?.value;
+    console.log(clave, " - ", claveC);
+    if (clave === claveC) {
+      console.log('Contraseñas iguales');
+      alert('Contraseñas iguales');
+
+      this.clavesCorrectas = true;
+    } else {
+      console.log('Contraseñas no coinciden');
+      alert('Contraseñas no coinciden');
+      this.clavesCorrectas = false;
+    }
   }
 
   onSubmit(){
