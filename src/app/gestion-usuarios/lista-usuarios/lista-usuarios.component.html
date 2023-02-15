@@ -1,0 +1,55 @@
+<!--Aqui mostramos la lista de usuarios del servidor, ademas de añadir un boton para añadir un nuevo usuario, otro
+para editar y otro para borrar-->
+<div class='container'>
+    <div class='row'>
+        <div class='col-sm-12'>
+            <br>
+            <form class='form-inline'>
+                <fieldset class='form-group col-sm-11'></fieldset>
+    
+                <fieldset class='form-group col-sm-3'>
+                    <a class= 'btn btn-primary' routerLink="crearUsuario">NUEVO USUARIO</a>
+                </fieldset>
+            </form>
+            <br>
+            <table class='table table-striped'>
+                <thead>                
+                    <tr>
+                        <th class='col-sm-6'>CORREO ELECTRONICO</th>
+                        <th class='col-sm-6'>CONTRASEÑA</th>
+                        <th class='col-sm-6'>ROL</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="usuarios">
+                    <tr *ngFor='let usuario of usuarios'>
+                        <td class='col-sm-6'>
+                            <i>{{usuario.correo}}</i>
+                        </td>
+                        
+                        <td class='col-sm-6'>
+                            <i>{{usuario.clave}}</i>
+                        </td>
+
+                        <td class='col-sm-6'>
+                            <i>{{usuario.rol}}</i>
+                        </td>
+
+                        <td class=”col-sm-1”>
+                            
+                        </td>
+
+                        <td class=”col-sm-1”>
+                            <a class='btn btn-info' routerLink="editarUsuario/{{usuario.id}}">Editar</a>
+                        </td>
+
+
+                        <td class=”col-sm-1”>
+                            <a class='btn btn-info' (click)="borrar(usuario.id)">-</a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

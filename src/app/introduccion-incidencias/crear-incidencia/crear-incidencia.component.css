@@ -19,3 +19,8 @@ fieldset{
     text-align: center;
     margin-top: 3%;
 }
+
+.container{
+    text-align: center;
+    align-items: center;
+}

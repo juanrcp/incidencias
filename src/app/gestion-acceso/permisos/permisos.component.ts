@@ -16,9 +16,7 @@ export class PermisosComponent implements CanActivate {
   ) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    /*if(this.auth.isAuthenticated()) {
-      return true;
-    }*/
+
     this.auth.isAuthenticated().subscribe(
       res => {
         if(res && res.uid) {
@@ -34,6 +32,6 @@ export class PermisosComponent implements CanActivate {
       }
     );
     return true;
-  }
 
+  }
 }

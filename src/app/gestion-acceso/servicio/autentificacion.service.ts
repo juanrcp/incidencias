@@ -16,7 +16,6 @@ export class AutentificacionService {
     return this.auth.authState;
   }
 
-
   //Creamos el login
   login({ correo, clave }: Usuario) {
     return this.auth.signInWithEmailAndPassword(correo, clave);

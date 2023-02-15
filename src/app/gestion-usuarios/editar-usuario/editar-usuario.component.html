@@ -1,0 +1,44 @@
+<div class="container col-sm-5">
+    <br>
+    <div class="col-sm-12">
+        <!--Formulario con requerimientos, si no se rellenan todos los campos el boton no se activara-->
+        <form [formGroup]="perfileForm" (ngSubmit)="guardar()">
+
+            <fieldset class="form-group">
+
+                <div class="col-sm-12">
+                    <label class="control-label" for="nombreCompleto">CORREO ELECTRONICO: </label>
+                    <input type="text" class="form-control" formControlName="correo" name="correo" required="">
+                </div>
+
+            </fieldset>
+
+            <fieldset class="form-group">
+
+                <div class="col-sm-12">
+                    <label class="control-label" for="nif">CONTRASEÑA: </label>
+                    <input type="text" class="form-control" formControlName="clave" name="clave" required=""/>
+                </div>
+
+            </fieldset>
+
+            <fieldset class="form-group">
+
+                <div class="col-sm-12">
+                    <label class="control-label" for="nif">ROL: </label>
+                    <input type="text" class="form-control" formControlName="rol" name="rol" required=""/>
+                </div>
+
+            </fieldset>            
+
+            <fieldset class="form-group" style="margin-top: 5%;">
+            
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" [disabled]="!perfileForm.valid">GUARDAR</button>
+                    <button type="button" class="btn btn-primary" (click)="volver()" style="margin-left: 5%;">VOLVER</button>
+                </div>
+            
+            </fieldset>
+        </form>
+    </div>
+</div>

@@ -12,6 +12,10 @@ const routes: Routes = [
   
   {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
 
+  {path: 'gestionUsuarios', loadChildren: () => import('./gestion-usuarios/gestion-usuarios.module').then(u => u.GestionUsuariosModule),
+    canActivate: [PermisosComponent]
+  },
+
   {path:'introduccionIncidencias', loadChildren: () => import('./introduccion-incidencias/introduccion-incidencias.module').
     then(i => i.IntroduccionIncidenciasModule),
   },
