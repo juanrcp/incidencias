@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { AutentificacionService } from '../../gestion-acceso/servicio/autentificacion.service';
+import { collection } from 'firebase/firestore';
+import { Usuario } from '../../interfaces/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +26,12 @@ export class UsuariosService {
   //Metodo del servicio para obtener un cliente concreto
   getUsuario(id: string): Observable<any>{
     return this.firebase.collection(this.coleccion).doc(id).snapshotChanges();
+  }
+
+  //Metodo para obtener al usuario segun su correo
+  getUserCorreo(mail: string): any {
+
+    return this.firebase.collection(this.coleccion, ref => ref.where('correo', "==", mail)).snapshotChanges();
   }
 
   //Metodo del servicio para modificar un cliente en concreto

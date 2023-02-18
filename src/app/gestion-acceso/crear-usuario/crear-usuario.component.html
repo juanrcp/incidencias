@@ -21,18 +21,21 @@
                         </mat-form-field>
                         <mat-form-field class="form-control">
                             <mat-label>CLAVE</mat-label>
-                            <input matInput formControlName="clave" type="clave" required />
+                            <input matInput formControlName="clave" type="text" required />
                             <mat-error *ngIf="clave?.hasError('required')">
                                 Clave requerida.
                             </mat-error>
                         </mat-form-field>
+                        
                         <mat-form-field class="form-control">
                             <mat-label>CONFIRMAR CLAVE</mat-label>
-                            <input matInput formControlName="claveC" type="claveC" (blur)="compruebaClaves()" required />
+                            <input matInput formControlName="claveC" type="text" (blur)="compruebaClaves()" required />
                             <mat-error *ngIf="clave != claveC">
                                 Las claves no coinciden.
                             </mat-error>
                         </mat-form-field>
+                        <!--
+                        -->
                         <div class="form-footer">
                             <br>
                             <button [disabled]="form.invalid" mat-raised-button type="submit">

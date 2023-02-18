@@ -30,4 +30,5 @@ export class AutentificacionService {
   logout() {
     return this.auth.signOut();
   }
+
 }

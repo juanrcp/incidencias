@@ -14,19 +14,21 @@ export class CrearUsuarioComponent {
 
   form: FormGroup;
   clavesCorrectas: boolean;
+  usuario: Usuario;
 
   constructor(
     private fb: FormBuilder,
-    public autenServicio : AutentificacionService,
+    private autenServicio : AutentificacionService,
     private readonly router: Router, 
-    public registraUsuario: UsuariosService
+    private registraUsuario: UsuariosService
   ) {}
+  
   ngOnInit(): void {
     //Formulario del Login
     this.form = this.fb.group({
-      correo: ['', [Validators.required]],
+      correo: ['', Validators.required],
       clave: ['', Validators.required], 
-      claveC: ['', Validators.required], 
+      claveC: ['', Validators.required],
       rol: ['PENDIENTE DE ASIGNAR']
     });
   }
@@ -43,13 +45,17 @@ export class CrearUsuarioComponent {
     return this.form.get('claveC');
   }
 
+
   register(data: Usuario) {
+
     this.autenServicio.register(data)
       .then(() => this.router.navigate(['/login']))
       .catch((e) => console.log(e.message));
 
       //Esto nos crea el metodo en la base de datos con un rol.
+      console.log('DATA es: ' + data);
       this.registraUsuario.addUsuario(data);
+      
 
   }
 
@@ -57,22 +63,20 @@ export class CrearUsuarioComponent {
     console.log('Comprobando que las contaseñas sean identicas');
     /*  La idea es leer ambas passwords y ver si son iguales, si no resetearlas y volver a pedirlas */
     const clave = this.form.get('clave')?.value;
-    const claveC = this.form.get('claveC')?.value;
+    const claveC = this.claveC;
     console.log(clave, " - ", claveC);
     if (clave === claveC) {
       console.log('Contraseñas iguales');
-      alert('Contraseñas iguales');
 
       this.clavesCorrectas = true;
     } else {
       console.log('Contraseñas no coinciden');
-      alert('Contraseñas no coinciden');
       this.clavesCorrectas = false;
     }
   }
 
   onSubmit(){
     this.register(this.form.value);
-  }
 
+  }
 }
