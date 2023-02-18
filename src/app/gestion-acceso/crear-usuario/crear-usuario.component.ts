@@ -19,7 +19,7 @@ export class CrearUsuarioComponent {
   constructor(
     private fb: FormBuilder,
     private autenServicio : AutentificacionService,
-    private readonly router: Router, 
+    private router: Router, 
     private registraUsuario: UsuariosService
   ) {}
   
@@ -45,6 +45,10 @@ export class CrearUsuarioComponent {
     return this.form.get('claveC');
   }
 
+  get rol() {
+    return this.form.get('rol');
+  }
+
 
   register(data: Usuario) {
 
@@ -52,18 +56,25 @@ export class CrearUsuarioComponent {
       .then(() => this.router.navigate(['/login']))
       .catch((e) => console.log(e.message));
 
-      //Esto nos crea el metodo en la base de datos con un rol.
-      console.log('DATA es: ' + data);
-      this.registraUsuario.addUsuario(data);
-      
+      //Con esto creamos el nuevo usuario que añadiremos a la base de datos y le adjudicamos un rol.
+      let usu: Usuario = {
+        correo: data.correo,
+        clave: data.clave,
+        rol: data.rol
+      }
+
+      console.log(usu);
+      this.registraUsuario.addUsuario(usu);
+      console.log('Usuario creado en base de datos.');      
 
   }
 
+  //Metodo para comparar las claves suministradas en el formulario y ver si son identicas
   compruebaClaves() {
     console.log('Comprobando que las contaseñas sean identicas');
     /*  La idea es leer ambas passwords y ver si son iguales, si no resetearlas y volver a pedirlas */
     const clave = this.form.get('clave')?.value;
-    const claveC = this.claveC;
+    const claveC = this.form.get('claveC')?.value;
     console.log(clave, " - ", claveC);
     if (clave === claveC) {
       console.log('Contraseñas iguales');

@@ -12,7 +12,7 @@ import { Usuario } from '../../interfaces/usuario';
 })
 export class PermisosComponent implements CanActivate {
 
-  usuario: Usuario;
+  usuario?: Usuario;
 
   constructor(
     private auth: AutentificacionService,
@@ -20,27 +20,23 @@ export class PermisosComponent implements CanActivate {
     private usuarioServicio: UsuariosService
   ) {}
 
+  //Con este CanActivate controlamos que este logueado el usuario y el rol con el que puede acceder. 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
     this.auth.isAuthenticated().subscribe(
       res => {
-        if(res && res.uid) {
-          console.log(res.email);
-          console.log('Usuario logueado!!');
-
+        if (res && res.uid) {
           this.usuarioServicio.getUserCorreo(res.email).subscribe(
-            (resp: any)  => {
-               this.usuario = resp.payload.data();
-               console.log(this.usuario.rol);
-               this.eresAdministrador(this.usuario.rol);
-              
+            (res: any[])  => {
+              res.forEach( dataUser => {
+                this.compruebaRol(dataUser.rol);
+              });
             }
           )
-          //this.router.navigate(['/administracion']);
           return true;
         } else {
           console.log('Usuario no logueado!');
-          this.router.navigate(['/gestionAcceso/login']);
+          this.router.navigate(['/login']);
           return false;
         }
       }
@@ -49,8 +45,9 @@ export class PermisosComponent implements CanActivate {
 
   }
 
-  eresAdministrador(rol: string): boolean {
-    if(rol === "ADMINISTRADOR") {
+  //Metodo para comprobar el rol del usuario
+  compruebaRol(rol: string): boolean {
+    if(rol === 'ADMINISTRADOR') {
       console.log('Eres Administrador');
       return true;
     }else if(rol === 'REVISOR'){
