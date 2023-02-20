@@ -64,7 +64,7 @@ export class CrearUsuarioComponent {
       }
 
       console.log(usu);
-      this.registraUsuario.addUsuario(usu);
+      this.registraUsuario.addUsuario(usu).then((error) => console.log(error));
       console.log('Usuario creado en base de datos.');      
 
   }
