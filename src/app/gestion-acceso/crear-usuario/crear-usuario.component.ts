@@ -52,20 +52,21 @@ export class CrearUsuarioComponent {
 
   register(data: Usuario) {
 
+    //Con esto creamos el nuevo usuario que añadiremos a la base de datos y le adjudicamos un rol.
+    let usu: Usuario = {
+      correo: data.correo,
+      clave: data.clave,
+      rol: data.rol
+    }
+
     this.autenServicio.register(data)
-      .then(() => this.router.navigate(['/login']))
-      .catch((e) => console.log(e.message));
+      .then(() => 
+      this.registraUsuario.addUsuario(usu).then(() => console.log('Usuario creado en base de datos.')).
+        catch((e) => console.log(e))
+        ).catch((e) => console.log(e.message));
 
-      //Con esto creamos el nuevo usuario que añadiremos a la base de datos y le adjudicamos un rol.
-      let usu: Usuario = {
-        correo: data.correo,
-        clave: data.clave,
-        rol: data.rol
-      }
-
-      console.log(usu);
-      this.registraUsuario.addUsuario(usu).then((error) => console.log(error));
-      console.log('Usuario creado en base de datos.');      
+        
+      this.router.navigate(['/login']);            
 
   }
 
