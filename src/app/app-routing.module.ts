@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
-import { PermisosComponent } from './gestion-acceso/permisos/permisos.component';
+import { PermisosGuard } from './gestion-acceso/permisos/permisos.guard';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 
@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
 
   {path: 'gestionUsuarios', loadChildren: () => import('./gestion-usuarios/gestion-usuarios.module').then(u => u.GestionUsuariosModule),
-    canActivate: [PermisosComponent]
+    canActivate: [PermisosGuard]
   },
 
   {path:'introduccionIncidencias', loadChildren: () => import('./introduccion-incidencias/introduccion-incidencias.module').
@@ -22,11 +22,11 @@ const routes: Routes = [
 
   {path:'gestionIncidencias', loadChildren: () => import('./gestion-incidencias/gestion-incidencias.module').
     then(g => g.GestionIncidenciasModule),
-    canActivate: [PermisosComponent]
+    canActivate: [PermisosGuard]
   },
   {path:'revisionIncidencias', loadChildren: () => import('./revision-incidencias/revision-incidencias.module').
     then(r => r.RevisionIncidenciasModule),
-    canActivate: [PermisosComponent]
+    canActivate: [PermisosGuard]
   },
   {path:'**', redirectTo:'/home', pathMatch: 'full' }
 ];

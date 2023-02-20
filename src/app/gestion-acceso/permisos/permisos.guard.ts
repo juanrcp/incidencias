@@ -1,18 +1,15 @@
-import { Component } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { AutentificacionService } from '../servicio/autentificacion.service';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UsuariosService } from '../../gestion-usuarios/servicio/usuarios.service';
-import { Usuario } from '../../interfaces/usuario';
+import { Usuario } from 'src/app/interfaces/usuario';
+import { AutentificacionService } from '../servicio/autentificacion.service';
+import { UsuariosService } from 'src/app/gestion-usuarios/servicio/usuarios.service';
 
-@Component({
-  selector: 'app-permisos',
-  templateUrl: './permisos.component.html',
-  styleUrls: ['./permisos.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class PermisosComponent implements CanActivate {
-
-  usuario?: Usuario;
+export class PermisosGuard implements CanActivate {
+  cusuario?: Usuario;
 
   constructor(
     private auth: AutentificacionService,
@@ -61,5 +58,5 @@ export class PermisosComponent implements CanActivate {
       return false;
     }
   }
-
+  
 }

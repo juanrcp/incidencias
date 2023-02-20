@@ -18,8 +18,8 @@ import { GestionAccesoModule } from './gestion-acceso/gestion-acceso.module';
 //Importaciones necesarias para la autentificacion
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { PermisosComponent } from './gestion-acceso/permisos/permisos.component';
 import { GestionUsuariosModule } from './gestion-usuarios/gestion-usuarios.module';
+import { PermisosGuard } from './gestion-acceso/permisos/permisos.guard';
 
 
 @NgModule({
@@ -49,7 +49,7 @@ import { GestionUsuariosModule } from './gestion-usuarios/gestion-usuarios.modul
 
   ],
   providers: [
-    PermisosComponent,
+    PermisosGuard,
     { provide: PERSISTENCE, useValue: 'session'}],
   bootstrap: [AppComponent]
 })

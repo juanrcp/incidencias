@@ -15,7 +15,7 @@
       </mat-form-field>
       <mat-form-field class="form-control">
         <mat-label>CLAVE</mat-label>
-        <input matInput formControlName="clave" type="clave" required />
+        <input matInput formControlName="clave" type="password" required />
         <mat-error *ngIf="clave?.hasError('required')">
           Clave requerida.
         </mat-error>
