@@ -45,12 +45,7 @@ export class LoginComponent {
   login(loginData: Usuario) {
     this.autenServicio.login(loginData)
       .then(() => this.router.navigate(['/home']))
-      .catch((e) => console.log(e.message));
-  }
-
-  onSubmit() {
-    //this.formData.emit(this.form.value);
-    this.login(this.form.value);
+      .catch((e) => alert(e.message));
   }
 
 }
