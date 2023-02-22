@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AutentificacionService } from '../gestion-acceso/servicio/autentificacion.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AutentificacionService } from '../gestion-acceso/servicio/autentificaci
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit{
 
   constructor(
     //Lo ponemos publico para poder usarlo en todos sitios

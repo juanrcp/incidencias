@@ -1,28 +1,28 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/home">GESTOR INCIDENCIAS</a>
+    <a class="navbar-brand" routerLink="/home">GESTOR INCIDENCIAS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/home">HOME</a>
+          <a class="nav-link active" aria-current="page" routerLink="/home">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/introduccionIncidencias">INTRODUCCIÓN INCIDENCIAS</a>
+          <a class="nav-link" routerLink="/introduccionIncidencias">INTRODUCCIÓN INCIDENCIAS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/gestionIncidencias">GESTIÓN INCIDENCIAS</a>
+          <a class="nav-link" routerLink="/gestionIncidencias">GESTIÓN INCIDENCIAS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/revisionIncidencias">REVISIÓN INCIDENCIAS</a>
+          <a class="nav-link" routerLink="/revisionIncidencias">REVISIÓN INCIDENCIAS</a>
         </li>
         <li class="nav-item">
           <p>       </p>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/gestionUsuarios">GESTION USUARIOS</a>
+          <a class="nav-link" routerLink="/gestionUsuarios">GESTION USUARIOS</a>
         </li>
         <li class="nav-item">
           <button type="button" class="btn btn-primary" *ngIf="!autentiServicio.estaLogueado" routerLink="/gestionAcceso">LOGIN</button>
