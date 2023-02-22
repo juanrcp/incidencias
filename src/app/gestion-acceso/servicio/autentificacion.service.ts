@@ -7,6 +7,9 @@ import { Usuario } from 'src/app/interfaces/usuario';
 })
 export class AutentificacionService {
   
+  //Variable para saber si esta o no logueado 
+  estaLogueado: boolean = false;
+
   //Este Auth es de Firebase
   constructor(private auth: AngularFireAuth) { 
 
@@ -18,6 +21,7 @@ export class AutentificacionService {
 
   //Creamos el login
   login({ correo, clave }: Usuario) {
+    this.estaLogueado = true;
     return this.auth.signInWithEmailAndPassword(correo, clave);
   }
 
@@ -28,6 +32,7 @@ export class AutentificacionService {
 
   //Metodo para salir 
   logout() {
+    this.estaLogueado = false;
     return this.auth.signOut();
   }
 

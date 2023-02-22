@@ -25,10 +25,10 @@
           <a class="nav-link" href="/gestionUsuarios">GESTION USUARIOS</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/gestionAcceso">LOGIN</a>
+          <button type="button" class="btn btn-primary" *ngIf="!autentiServicio.estaLogueado" routerLink="/gestionAcceso">LOGIN</button>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="logout()">LOGOUT</a>
+          <button type="button" class="btn btn-danger" *ngIf="autentiServicio.estaLogueado" (click)="logout()">LOGOUT</button>
         </li>
       </ul>
     </div>
